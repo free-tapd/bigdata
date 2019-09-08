@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>河北省卫生和计划生育委员会</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family:PingFangSC-Regular, sans-serif,SimHei;
+    box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+body{
+	min-width:1000px;
+	background: #080e2c url(image/layer817.png) no-repeat center top;
+}
+div{
+	margin:0px;
+	padding:0px;
+	color:#fff;
+}
+ul li{list-style: none;}
+.header{
+    width: 100%;
+    height: 96px;
+    line-height: 96px;
+	background:rgba(255,255,255,0.05);
+	padding:0 3.5% 0 3%;
+}
+.hcenter{
+	text-align:center;
+	/*line-height:85px;*/
+	font-size: 26px;
+	color:#fff;
+}
+.hrimg{margin-right:9px;position:relative;top:3px;}
+/*.hspan{margin-left:32px;}*/
+.hleft{font-size:24px;color:#3be8f3;line-height:88px;vertical-align:3px;margin-left:10px;}
+.htop1{position:relative;top:-5px;}
+.htotal{color:#e05723;font-size:33px;/*margin-right:50px;*/position:relative;}
+.left{
+	float:left;
+	width:230px;
+}
+.right{
+	float:right;
+}
+.content{
+    width: 100%;
+    position: absolute;
+    top: 96px;
+}
+.subcontent{
+   width:93%;
+   border:1px solid #3772b2;
+   border-radius:12px;
+   height:45%;
+   margin:6% 0 6% 7%;
+   background:#001848;
+   position:relative;
+}
+.bor_left_top{position:absolute; top:-1px;left:-1px;width:27px;}
+.bor_left_top0{position:absolute;
+ top:-6.2px;
+ top:-4.2px\0;
+ left:-1.4px;
+ width:27px;}
+.bor_left_bot{position:absolute; bottom:-5.3px;left:-1px;width:20px;}
+.bor_right_top{position:absolute; top:-1px;right:-1px;width:20px;}
+.bor_right_bot{position:absolute; bottom:-5.3px;right:-1px;width:20px;}
+.subcontentr{
+   width:93%;
+   border:1px solid #3772b2;
+   border-radius:12px;
+   /*height:355px;*/
+   margin:6% 7% 6% 0;
+   background:#001848;
+    position:relative;
+}
+.subcontentc{
+   width:92%;
+   border:1px solid #3772b2;
+   border-radius:12px;
+   /*height:355px;*/
+   margin:4.5% 4% 5% 4%;
+   background:#001848;
+   position:relative;
+}
+.subcontentc_bg{
+    background: url(image/map_bg.png) no-repeat top left;
+}
+
+.title{
+	height:40px;border:1px solid #3772b2;background:#09275e;border-radius:12px 12px 0 0;
+}
+.subtitle{
+	line-height:40px;margin-left:17px;
+}
+.content>div{
+	float:left;min-width:300px;min-height:300px;display:inline-block;
+}
+/*3 div*/
+.content_left{
+	width:30%;height:100%;
+}
+.content_center{
+	width:40%;height:100%;
+}
+.content_right{
+	width:30%;height:100%;
+}
+.map_p{
+	padding-bottom:7px;
+}
+/* 中间上 center_top end*/
+
+.pp0 p:nth-child(2){
+	padding-bottom:20px;
+}
+.pp0 p:nth-child(3){
+	padding:3px 0 0 0;
+}
+.pp0 p:nth-child(4){
+	padding:3px 0 10px 0;
+}
+.pp0 p:nth-child(5){
+	padding:3px 0 0 0;
+}
+.pp0 p:nth-child(6){
+	padding-left:0;
+}
+.pp0{
+font-size:13px;margin:25% 14% 0 10%;
+}
+/* 滚动 */
+.txtscroll{padding:12px 7px;}
+.scroll_top {}
+.scroll_top ul{}
+
+.scroll_top ul li{float:left;text-align: center;line-height: 30px;background:rgba(28,61,105,1);}
+.scroll_top ul li:nth-child(1){width:60%;}
+.scroll_top ul li:nth-child(2){width:15%;}
+.scroll_top ul li:nth-child(3){width:25%;}
+.txtScroll-top{ width:100%;  overflow:hidden; position:relative; }
+.txtScroll-top .bd{ padding:1%;}
+.txtScroll-top .infoList li{display:flex; line-height:34px;background:rgba(28,61,105,0.23); font-size:14px;color:#fff;  }
+.txtScroll-top .infoList li:nth-child(2n){background:#001848;}
+.txtScroll-top ul li p{float:left;text-align: center;}
+.txtScroll-top ul li p:nth-child(1){width:60%;}
+.txtScroll-top ul li p:nth-child(2){width:15%;}
+.txtScroll-top ul li p:nth-child(3){width:25%;}
+
+/* 滚动2 */
+.txtscroll1{padding:12px 7px;}
+.scroll_top1 {}
+.scroll_top1 ul{}
+
+.scroll_top1 ul li{float:left;text-align: center;line-height: 30px;background:rgba(28,61,105,1);}
+.scroll_top1 ul li:nth-child(1){width:20%;}
+.scroll_top1 ul li:nth-child(2){width:15%;}
+.scroll_top1 ul li:nth-child(3){width:15%;}
+.scroll_top1 ul li:nth-child(4){width:25%;}
+.scroll_top1 ul li:nth-child(5){width:25%;}
+.txtScroll-top1{ width:100%;  overflow:hidden; position:relative; }
+.txtScroll-top1 .bd{ padding:1%;}
+.txtScroll-top1 .infoList li{overflow:hidden; height:34px;display:flex; line-height:34px;background:rgba(28,61,105,0.23); font-size:14px;color:#fff;  }
+.txtScroll-top1 .infoList li:nth-child(2n){background:#001848;}
+.txtScroll-top1 ul li p{float:left;text-align: center;}
+.txtScroll-top1 ul li p:nth-child(1){width:20%;}
+.txtScroll-top1 ul li p:nth-child(2){width:15%;}
+.txtScroll-top1 ul li p:nth-child(3){width:15%;}
+.txtScroll-top1 ul li p:nth-child(4){width:25%;}
+.txtScroll-top1 ul li p:nth-child(5){width:25%;}
+
+
+/* 滚动 end*/
+/* 中间上 center_top */
+.center_top ul {margin:15px 0;}
+.center_top ul li{float:left;width:33%;text-align:center;border-right:1px solid rgba(255,255,255,0.2);}
+.center_top ul li:last-child{border-right:0;}
+.center_top ul li p:nth-child(1){font-size:14px;padding-bottom: 2px;color:#fff;}
+.center_top ul li p:nth-child(2){font-size:26px;    height: 26px;color:#3BE8F3;}
+.center_top ul li:nth-child(1) p:nth-child(2){color:#3BE8F3;}
+.center_top ul li:nth-child(2) p:nth-child(2){color:#21D29D;}
+.center_top ul li:nth-child(3) p:nth-child(2){color:#52BBFF;}
+
+.infoList li p:nth-child(n+2){
+    color:#5da3d0;
+}
+
+/*************************************************************/
+.part5{
+	height:61.5%;
+	margin-bottom:4% !important;margin-top:3% !important;
+}
+.part6{
+	margin-top:4% !important;
+	height:30%;
+	margin-bottom:0 !important
+}
+.part4 {margin-bottom:0 !important}
+.part2{margin-bottom:0 !important;margin-top:4% !important;height:46%}
+.part1{height:46.5% !important;margin-bottom:4% !important;margin-top:3% !important;}
+.part3{margin-top:2% !important;}
+.allwidth{
+	width:100%;
+}
+.nomargintop{
+	width:100%;margin-top:0px;
+}
+</style>
+<body>
+<script type="text/javascript" src="js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/hebei.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+<div class="header">
+	<div class="left" >
+		<span class="hspan"><image src="image/home.png"/></span>
+		<span class="hleft">综合统计</span>
+    </div>
+    
+	<div class="right">
+		<span class="hrimg" ><image src="image/top1.png" class=""/></span>
+		<span class="hright htop1">当前医院总数</span>
+		<span class="htotal htop1">26</span>
+	</div>
+	<div class="hcenter" >河北省卫生和计划生育委员会</div>
+</div>
+<div class="content">
+	<div class="content_left"  >
+		<div class="subcontent part1">
+            <div class="bor_left_top"><img src="image/top_jiao1.png" alt=""></div>
+
+			<div class="title">
+				<span class="subtitle">远程门诊增长统计（次）</span>
+			</div>
+			<div class="allwidth" id="bar"></div>
+		</div>
+		<div class="subcontent part2">
+        <div class="bor_left_top"><img src="image/top_jiao1.png" alt=""></div>
+			<div class="title">
+				<span class="subtitle">双向转诊增长统计（次）</span>
+			</div>
+			<div class="allwidth" id="line"></div>
+		</div>
+	</div>
+	<div class="content_center">
+		<div class="subcontentc part3" style="height:85.5px;margin-bottom:3%">
+            <div class="center_top">
+                 <div class="bor_left_top0"><img src="image/top_jiao0.png" alt=""></div>
+                <div class="bor_left_bot"><img src="image/bot_jiao.png" alt=""></div>
+                 <div class="bor_right_top"><img src="image/top_jiao2.png" alt=""></div>
+                <div class="bor_right_bot"><img src="image/bot_jiao2.png" alt=""></div>
+                <ul>
+                    <li>
+                        <p>当日挂号量</p>
+                        <p class="date_num">4856</p>
+                    </li>
+                    <li>
+                        <p>当日门诊量</p>
+                        <p class="date_num">416</p>
+                    </li>
+                    <li>
+                        <p>当日转诊量</p>
+                        <p class="date_num">6</p>
+                    </li>
+                </ul>
+            </div>
+
+		</div>
+		<div class="subcontentc subcontentc_bg part4" style="margin-top:3%">
+            <div class="bor_left_top0"><img src="image/top_jiao0.png" alt=""></div>
+            <div class="bor_left_bot"><img src="image/bot_jiao.png" alt=""></div>
+             <div class="bor_right_top"><img src="image/top_jiao2.png" alt=""></div>
+            <div class="bor_right_bot"><img src="image/bot_jiao2.png" alt=""></div>
+			<div class="nomargintop" id="echartMap"></div>
+		</div>
+	</div>
+	<div class="content_right">
+		<div class="subcontentr subheight1 part5">
+          <div class="bor_left_top"><img src="image/top_jiao1.png" alt=""></div>
+			<div class="title">
+				<span class="subtitle">医院挂号量统计（次）</span>
+			</div>
+			<div class="txtscroll" class="allwidth" >
+                <div class="scroll_top">
+                    <ul>
+                        <li>医院</li>
+                        <li>当日</li>
+                        <li>累计</li>
+                    </ul>
+                </div>
+                <div class="scroll_bot">
+                    <div class="txtScroll-top">
+                        <div class="bd">
+<ul class="infoList">
+                                <li>
+                                     <p>河北医科大学第一医院</p>
+                                     <p class="date_num">1</p>
+                                     <p class="date_num">22320</p>
+                                </li>
+                                <li>
+                                   <p>河北医科大学第二医院</p>
+                                     <p class="date_num">2</p>
+                                     <p class="date_num">21312</p>
+                                </li>
+                                <li>
+                                     <p>河北医科大学第三医院</p>
+                                     <p class="date_num">3</p>
+                                     <p class="date_num">54332</p>
+                                </li>
+                                <li>
+                                     <p>河北医科大学第四医院</p>
+                                     <p class="date_num">4</p>
+                                     <p class="date_num">42423</p>
+                                </li>
+                                <li>
+                                   <p>河北省人民医院</p>
+                                     <p class="date_num">5</p>
+                                     <p class="date_num">43483</p>
+                                </li>
+                                <li>
+                                     <p>石家庄市第一医院</p>
+                                     <p class="date_num">6</p>
+                                     <p class="date_num">44343</p>
+                                </li>
+                                <li>
+                                     <p>石家庄市第二医院</p>
+                                     <p class="date_num">6</p>
+                                     <p class="date_num">44343</p>
+                                </li>
+                                <li>
+                                     <p>石家庄市第三医院</p>
+                                     <p class="date_num">8</p>
+                                     <p class="date_num">22345</p>
+                                </li>
+                                <li>
+                                     <p>石家庄市第四医院</p>
+                                     <p class="date_num">105</p>
+                                     <p class="date_num">1341</p>
+                                </li>
+                                <li>
+                                     <p>秦皇岛市第一医院</p>
+                                     <p class="date_num">115</p>
+                                     <p class="date_num">32131</p>
+                                </li>
+                                <li>
+                                     <p>河北工程大学附属医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                                <li>
+                                     <p>邯郸市第一医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                                <li>
+                                     <p>邢台市人民医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                                <li>
+                                     <p>河北大学附属医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                                <li>
+                                     <p>保定市妇幼保健院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                                <li>
+                                     <p>沧州市人民医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+								<li>
+                                     <p>沧州市中心医院</p>
+                                     <p class="date_num">125</p>
+                                     <p class="date_num">12312</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="subcontentr subheight2 part6">
+        <div class="bor_left_top"><img src="image/top_jiao1.png" alt=""></div>
+			<div class="title">
+				<span class="subtitle">科室当月挂号量统计（次）</span>
+			</div>
+			<div class="allwidth" id="pie1"></div>
+		</div>
+	</div>
+</div>
+<div class="footer" style="position:absolute;bottom:0;height:50px;width:100%;"> 
+    <div style="text-align:center;line-height:50px;font-size:12px;">技术支持：沁芳科技</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+<script>
+$(document).ready(function(){
+var t5;
+function resize(){
+	var hall = $(window).height()-110;
+	$(".content").height(hall);
+	var t = $(".part1").height();
+	$("#bar").height(t-55);
+	$("#line").height(t-59);
+	var t2 = $(".part3").height()
+	var t4 = hall-t2-hall*0.1+7;
+	$(".part4").height(t4);
+	$("#echartMap").height(t4)
+	var t3 = $(".part6").height();
+	$("#pie1").height(t3-50);
+	t5 = ($(".part5").height()-64)/34-1;
+}
+resize();
+$(window).resize(function(){
+	window.location.reload()
+	// resize();
+})
+	
+// var t6;
+/*向上滚动*/
+function date_num(){
+    $('.date_num').each(function(i){
+   var date_num=parseInt($(this).html());
+    var random=parseInt(10*Math.random());
+        random=date_num+random;
+        $(this).html(random)
+});
+
+}
+setInterval(date_num,5000)
+jQuery(".txtScroll-top").slide({ mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:
+	t5,pnLoop:false});
+	//柱状图***************************
+    var myChartBar = echarts.init(document.getElementById('bar'));
+	var barDate = ['02','03','04','05','06','07','08','09','10','11','12','01','(月)'];
+	var barData = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149];
+    initBar();
+    makeBar();
+    function initBar(){
+		option = {
+			// backgroundColor: '#001848',
+			grid:{x:25,y:5,x2:15,y2:20},
+		    xAxis: {
+		        type : 'category',
+		        axisLabel: {
+		        	color:'#fff',
+		        },
+		        axisTick: {
+		            show: false
+		        },
+		        axisLine: {
+		            show: false
+		        },
+		    },
+		    yAxis: {
+		        axisLine: {
+		            show: false
+		        },
+		        axisTick: {
+		            show: false
+		        },
+		        axisLabel: {
+		            show:false
+		        },
+		        splitLine: {
+		            show: false
+		        }
+		    },
+		    series: [
+		        {
+		            type: 'bar',
+		            barWidth:6,
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top',
+		                    color:'#fff'
+		                }
+		            },
+		            itemStyle: {
+		                normal: {
+		                	barBorderRadius:11,
+		                    color:'#09b0f5',
+		                },
+		                emphasis: {
+		                    color: new echarts.graphic.LinearGradient(
+		                        0, 0, 0, 1,
+		                        [
+		                            {offset: 0, color: '#2378f7'},
+		                            {offset: 0.7, color: '#2378f7'},
+		                            {offset: 1, color: '#83bff6'}
+		                        ]
+		                    )
+		                }
+		            },
+		            // data: data
+		        }
+		    ]
+		};
+    }
+    function makeBar(){
+        option.series[0].data = barData;
+        option.xAxis.data = barDate;
+        myChartBar.setOption(option);
+    }
+    //折线图***************************
+    var myChartLine = echarts.init(document.getElementById('line'));
+	var lineData = [21,25,27,12,22,21,25,27,12,22,42,32];
+	var lineDate = ['02','03','04','05','06','07','08','09','10','11','12','01','(月)'];
+    initLine();
+    makeLine();
+    function initLine(){
+        option = {
+        	// backgroundColor: '#001848',
+        	grid:{x:45,y:25,x2:25,y2:20},
+        	tooltip: {
+//        		triggerOn: 'none',
+                formatter: function (params) {
+                    return params.data;
+                },
+                position: function (point, params, dom, rect, size) {
+                    // 固定在顶部
+                    return [point[0]+14, point[1]-14];
+                }
+            },
+		    xAxis: {
+		        type: 'category',
+		        axisTick:{
+		        	show:false,
+		        },
+		        boundaryGap: false,
+		        axisTick:{
+		        	show:false,
+		        },
+		        axisLabel:{
+		        	color:'#fff'
+		        },
+		        axisLine:{
+		        	lineStyle:{
+		        		color:'rgba(12,102,173,.5)',
+		        		width:2,
+		        	}
+		        },
+		    },
+		    yAxis: {
+		        type: 'value',
+		        axisTick:{
+		        	show:false,
+		        },
+		        axisLabel:{
+		        	color:'#fff'
+		        },
+		        axisLine:{
+		        	lineStyle:{
+		        		width:2,
+		        		color:'rgba(12,102,173,.5)',
+		        	}
+		        },
+		        splitLine: {
+		            show: false
+		        }
+		    },
+		    series: [
+		        {
+		            type:'line',
+		            lineWidth:3,
+		            symbol: 'circle',
+		            symbolSize: '7',
+		            itemStyle: {
+		                normal: {
+		                    color: '#09b0f5',
+		                    lineStyle: {
+				                color: "#41b1de"
+				            }
+		                }
+		            },
+		            areaStyle: {
+		                normal: {
+		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+		                        offset: 0,
+		                        color: '#09b0f5'
+		                    }, {
+		                        offset: 1,
+		                        color: 'rgba(12,102,173,.5)'
+		                    }])
+		                }
+		            },
+		        }
+		    ]
+		};
+    }
+    function makeLine(){
+        option.series[0].data = lineData;
+        option.xAxis.data = lineDate;
+        myChartLine.setOption(option);
+    }
+    //环形图
+    var myChartPie1 = echarts.init(document.getElementById('pie1'));
+    var pie1Data = [
+                    {value: 20, name: '内科'},
+                    {value: 20, name: '妇产科'},
+                    {value: 15, name: '神经科'},
+                    {value: 15, name: '骨科'},
+                    {value: 15, name: '眼科'},
+                    {value: 30, name: '外科'}
+                ]
+    initPie1();
+    makePie1();
+    function initPie1(){
+        option = {
+        	grid:{x:0,y:5,x2:0,y2:0},
+            // backgroundColor: '#001848',
+            color: ['#52bbff','#4ef2f2','#f4536a','#e6923e','#357aae','#45bcf2'],
+            series: [{
+                    type: 'pie',
+                    radius: ['39%', '55%'],
+                    itemStyle: {
+                        normal:{
+                            label:{
+                                show:true,
+                                textStyle:{color:'#3c4858',fontSize:"12"},
+                                formatter:function(val){
+                                    return '{a|' + val.name + '}{b| ' + val.value+'%}'
+                                },
+                                rich: {
+                                    a: { color: '#fff',fontSize: 12},
+                                    b: {color: '#ff9900',fontSize: 12}
+                                }
+                            },
+                            labelLine:{
+                                show:true,
+                                lineStyle:{color:'#45bcf2'}
+                            }
+                        },
+                    },
+            }],
+        };
+    }
+    function makePie1(){
+        option.series[0].data = pie1Data
+        myChartPie1.setOption(option);
+    }
+
+/**地图*****************************************/
+    var map_num1 = [1100,12,130,14,15,10,10,10,10,1000,11];
+    var map_num2 = [2100,22,230,24,25,20,20,20,20,2000,21];
+    var map_num3 = [3100,32,330,34,35,30,30,30,30,3000,31];
+    var myChartMap = echarts.init(document.getElementById('echartMap'));
+    var cityAddress = [{"name": "石家庄", "value": [114.48, 38.31]},
+        {"name": "保定", "value": [115.48, 39.17]},
+        {"name": "张家口", "value": [114.88, 41.12]},
+        {"name": "承德", "value": [117.88, 41.32]},
+        {"name": "秦皇岛", "value": [119.38, 40.22]},
+        {"name": "唐山", "value": [118.28, 39.92]},
+        {"name": "廊坊", "value": [116.58, 39.22]},
+        {"name": "沧州", "value": [116.28, 38.32]},
+        {"name": "邯郸", "value": [114.78, 36.37]},
+        {"name": "衡水", "value": [115.68, 37.98]},
+        {"name": "邢台", "value": [114.88, 37.32]}]
+    //第一层蓝点，第二层黄点
+    var cityAddress1 = JSON.parse(JSON.stringify(cityAddress));
+    var cityAddress2 = [cityAddress[0]];
+    var firstCity = '石家庄';
+    var mun=["石家庄","保定","张家口","承德","秦皇岛","唐山","廊坊","沧州","邯郸","衡水","邢台"];
+    var cur=0;
+    var timerMap;
+    var mapFlag = true;
+    autoTip();
+    showProvince();
+    MouseOnMap();
+    setMapData();
+    function autoTip(){
+    	mapFlag = true;
+    	timerMap = setInterval(function(){
+	        cur++;
+	        if(cur>=11){
+	            cur=0;
+	        }
+	        firstCity = mun[cur];
+	        cityAddress2[0] = cityAddress[cur];
+	        cityAddress1 = JSON.parse(JSON.stringify(cityAddress));
+	        cityAddress1[cur] = [];
+	        myChartMap.dispatchAction({type: 'showTip', seriesIndex: '1', dataIndex: cur});
+	        showProvince();
+	    },1000);
+    }
+    function setMapData(){
+   	    setInterval(function(){
+            var temp = parseInt(10*Math.random());
+            for(var i in map_num1){
+                map_num1[i]+=temp;
+            }
+            for(var i in map_num2){
+                map_num1[i]+=temp;
+            }
+            for(var i in map_num3){
+                map_num1[i]+=temp;
+            }
+	    },11000)
+    }
+    function showProvince(){
+        var option = {
+            tooltip : {
+                trigger: 'item', //提示框的触发类型。
+                 formatter: '<div style="padding:8px"><p class="map_p">当日挂号：<span >'+map_num1[cur]+'</span></p><p class="map_p">当日门诊量：<span>'+map_num2[cur]+'</span></p><p>当日转诊量：<span>'+map_num3[cur]+'</span></p></div>'
+            },
+            series: [
+                {
+
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 6,
+                    itemStyle: {
+                        normal: {
+                            color: '#1a97b1',
+                        },
+                    },
+                    data: cityAddress1
+                }, {
+		            name: 'categoryA',//用于自动弹出提示信息，配合dispatchAction使用
+		            type: 'map',
+		            geoIndex: 0,
+		            data:[
+		                {name: '石家庄', },
+		                {name: '保定', },
+		                {name: '张家口', },
+		                 {name: '承德', },
+		                {name: '秦皇岛', },
+		                {name: '唐山', },
+		                 {name: '廊坊', },
+		                {name: '沧州', },
+		                {name: '邯郸', },
+		                 {name: '衡水', },
+		                {name: '邢台', },
+		            ]
+		        }, {
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 6,
+                    itemStyle: {
+                        normal: {
+                            color: '#dc863c',
+                        },
+                    },
+                    data: cityAddress2
+                }
+            ],
+            geo: {
+                map: '河北',
+                zoom:1.12,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        textStyle: {
+		                    color: '#d8d8d8',
+		                    fontSize:14
+		                }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#fff',
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: '#389BB7',
+                        areaColor: '#004878',
+                    },
+                    emphasis: {
+                        areaColor: '#18a8d8',
+                        borderWidth: 0,
+                    }
+                },
+                regions: [{
+            	    name: firstCity,
+            	    itemStyle: {
+	                    normal: {
+	                        areaColor: '#18a8d8'
+	                    }
+                    }
+                }],
+                animation: false,
+            },
+        };
+        myChartMap.setOption(option);
+    }
+    function MouseOnMap(){
+    	myChartMap.on('mouseover', function (params) {
+    		console.log("in1");
+	        if(mapFlag){
+	        	mapFlag = false;
+	        	clearInterval(timerMap);
+	        	hoverMap(params.data.name);
+	        }
+	    });
+	    myChartMap.on('mouseout', function (params) {
+	    	console.log("out1");
+	    	if(!mapFlag){
+	    		autoTip();
+	        }
+	    });
+    }
+    function hoverMap(name){
+    	var cur = $.inArray( name, mun );
+    	firstCity = mun[cur];
+        cityAddress2[0] = cityAddress[cur];
+        cityAddress1[cur] = [];
+        myChartMap.dispatchAction({type: 'showTip', seriesIndex: '1', dataIndex: cur});
+        showProvince();
+    }
+
+
+})
+	</script>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>河北省远程医疗中心</title>
+</head>
+<body>
+<script type="text/javascript" src="js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/hebei.js"></script>
+<div class="content">
+	<div style="width:600px;height:800px;" id="echartMap"></div>
+</div>
+</body>
+<script>
+$(document).ready(function(){
+/**地图*****************************************/
+    var map_num1 = [0,0,0,0,0,0,0,0,0,0,0];
+    var map_num2 = [0,0,0,0,0,0,0,0,0,0,0];
+    var map_num3 = [0,0,0,0,0,0,0,0,0,0,0];
+    var myChartMap = echarts.init(document.getElementById('echartMap'));
+    var cityAddress = [{"name": "石家庄", "value": [114.48, 38.31]},
+        {"name": "保定", "value": [115.48, 39.17]},
+        {"name": "张家口", "value": [114.88, 41.12]},
+        {"name": "承德", "value": [117.88, 41.32]},
+        {"name": "秦皇岛", "value": [119.38, 40.22]},
+        {"name": "唐山", "value": [118.28, 39.92]},
+        {"name": "廊坊", "value": [116.58, 39.22]},
+        {"name": "沧州", "value": [116.28, 38.32]},
+        {"name": "邯郸", "value": [114.78, 36.37]},
+        {"name": "衡水", "value": [115.68, 37.98]},
+        {"name": "邢台", "value": [114.88, 37.32]}]
+    //第一层蓝点，第二层黄点
+    var cityAddress1 = JSON.parse(JSON.stringify(cityAddress));
+    var cityAddress2 = [cityAddress[0]];
+    var firstCity = '石家庄';
+    var mun=["石家庄","保定","张家口","承德","秦皇岛","唐山","廊坊","沧州","邯郸","衡水","邢台"];
+    var cur=0;
+    var timerMap;
+    var mapFlag = true;
+    autoTip();
+    showProvince(0);
+    MouseOnMap();
+    setMapData();
+    function autoTip(){
+    	mapFlag = true;
+    	timerMap = setInterval(function(){
+	        cur++;
+	        if(cur>=11){
+	            cur=0;
+	        }
+	        firstCity = mun[cur];
+	        cityAddress2[0] = cityAddress[cur];
+	        cityAddress1 = JSON.parse(JSON.stringify(cityAddress));
+	        cityAddress1[cur] = [];
+	        myChartMap.dispatchAction({type: 'showTip', seriesIndex: '1', dataIndex: cur});
+	        showProvince(cur);
+	    },1000);
+    }
+    function setMapData(){
+   	    setInterval(function(){
+            for(var i = 0;i<11;i++){
+                var temp1 = parseInt(1*Math.random());
+                var temp2 = parseInt(1*Math.random());
+                var temp3 = parseInt(1*Math.random());
+                map_num1[i]+=temp1;
+                map_num2[i]+=temp2;
+                map_num3[i]+=temp3;
+            }
+            
+	    },60000)
+    }
+    function showProvince(cur){
+        var option = {
+            tooltip : {
+                trigger: 'item', //提示框的触发类型。
+                 formatter: '<div style="padding:8px"><p class="map_p">当日挂号：<span >'+map_num1[cur]+'</span></p><p class="map_p">当日门诊量：<span>'+map_num2[cur]+'</span></p><p>当日转诊量：<span>'+map_num3[cur]+'</span></p></div>'
+            },
+            series: [
+                {
+
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 6,
+                    itemStyle: {
+                        normal: {
+                            color: '#1a97b1',
+                        },
+                    },
+                    data: cityAddress1
+                }, {
+		            name: 'categoryA',//用于自动弹出提示信息，配合dispatchAction使用
+		            type: 'map',
+		            geoIndex: 0,
+		            data:[
+		                {name: '石家庄', },
+		                {name: '保定', },
+		                {name: '张家口', },
+		                 {name: '承德', },
+		                {name: '秦皇岛', },
+		                {name: '唐山', },
+		                 {name: '廊坊', },
+		                {name: '沧州', },
+		                {name: '邯郸', },
+		                 {name: '衡水', },
+		                {name: '邢台', },
+		            ]
+		        }, {
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    symbolSize: 6,
+                    itemStyle: {
+                        normal: {
+                            color: '#dc863c',
+                        },
+                    },
+                    data: cityAddress2
+                }
+            ],
+            geo: {
+                map: '河北',
+                zoom:1.12,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        textStyle: {
+		                    color: '#d8d8d8',
+		                    fontSize:14
+		                }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            color: '#fff',
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderColor: '#389BB7',
+                        areaColor: '#004878',
+                    },
+                    emphasis: {
+                        areaColor: '#18a8d8',
+                        borderWidth: 0,
+                    }
+                },
+                regions: [{
+            	    name: firstCity,
+            	    itemStyle: {
+	                    normal: {
+	                        areaColor: '#18a8d8'
+	                    }
+                    }
+                }],
+                animation: false,
+            },
+        };
+        myChartMap.setOption(option);
+    }
+    function MouseOnMap(){
+    	myChartMap.on('mouseover', function (params) {
+	        if(mapFlag){
+	        	mapFlag = false;
+	        	clearInterval(timerMap);
+	        	hoverMap(params.data.name);
+	        }
+	    });
+	    myChartMap.on('mouseout', function (params) {
+	    	if(!mapFlag){
+	    		autoTip();
+	        }
+	    });
+    }
+    function hoverMap(name){
+    	var cur = $.inArray( name, mun );
+    	firstCity = mun[cur];
+        cityAddress2[0] = cityAddress[cur];
+        cityAddress1[cur] = [];
+        myChartMap.dispatchAction({type: 'showTip', seriesIndex: '1', dataIndex: cur});
+        showProvince(cur);
+    }
+
+
+})
+	</script>
+</html>
