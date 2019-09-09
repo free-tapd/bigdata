@@ -1,6 +1,6 @@
 var myChartMain = echarts.init(document.getElementById('main'));
 var barCityDate = ["石家庄市", "唐山市", "保定市", "承德", "秦皇岛", "张家口", "衡水市", "沧州市", "邢台市", "定州市", "廊坊市", "辛集市", "邯郸", "雄安新区"];
-    var barCityData = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 500, 300, 800];
+var barCityData = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 500, 300, 800];
 var myColor = ['#eb2100', '#eb3600', '#d0570e', '#d0a00e', '#34da62', '#00e9db', '#00c0e9', '#0096f3', '#33CCFF', '#33FFCC'];
 option = {
     backgroundColor: '#0e2147',
@@ -46,7 +46,7 @@ option = {
                 },
             }
         },
-        data: ['南昌转运中心', '广州转运中心', '杭州转运中心', '宁夏转运中心', '兰州转运中心', '南宁转运中心', '长沙转运中心', '武汉转运中心', '合肥转运中心', '贵州转运中心']
+        data: barCityDate,
     }, {
         axisTick: 'none',
         axisLine: 'none',
@@ -56,7 +56,7 @@ option = {
                 fontSize: '16',
             }
         },
-        data: ['10', '9', '8', '7', '6', '5', '4', '3', '2', '1']
+        data: ['14','13','12','11','10', '9', '8', '7', '6', '5', '4', '3', '2', '1']
     }, {
         name: '',
         nameGap: '30',
@@ -75,7 +75,7 @@ option = {
             name: '条',
             type: 'pictorialBar',
             yAxisIndex: 0,
-            data: [4, 13, 25, 29, 38, 44, 50, 52, 60, 72],
+            data: [4, 13, 25, 29, 38, 44, 50, 52, 60, 72,85,50,78,47],
                symbol: 'roundRect',//柱子显示的样式，'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
                 symbolRepeat: true,//每个小symbol是否重复
                 symbolSize: [5, 10],//图形的宽和高
@@ -103,7 +103,7 @@ option = {
             //         }
             //     }
             // },
-            barWidth: 12,
+            barWidth: 20,
             itemStyle: {
                 normal: {
                     color: function(params) {
@@ -119,7 +119,7 @@ option = {
             type: 'bar',
             yAxisIndex: 1,
             barGap: '-100%',
-            data: [99, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5],
+            data: [99, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5,99.5,99.5,99.5,99.5],
             barWidth: 20,
             itemStyle: {
                 normal: {
@@ -133,7 +133,7 @@ option = {
             type: 'bar',
             yAxisIndex: 2,
             barGap: '-100%',
-            data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+            data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100,100,100,100,100],
             barWidth: 24,
             itemStyle: {
                 normal: {
@@ -146,24 +146,7 @@ option = {
             },
             z: 0
         },
-        {
-            name: '外圆',
-            type: 'scatter',
-            hoverAnimation: false,
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            yAxisIndex: 2,
-            symbolSize: 0,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num = myColor.length;
-                        return myColor[params.dataIndex % num]
-                    },
-                    opacity: 1,
-                }
-            },
-            z: 2
-        }
+     
     ]
 };
 
