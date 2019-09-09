@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="echarts.min.js"></script>
+    <script src="./js/echarts-gl.js"></script>
+    <script src="./js/jquery.js"></script>
+
+    <script src='./js/hebei.js'></script>
+</head>
+
+<body>
+    <div id="main" style="width: 800px;height:600px"></div>
+    <script>
+       var myChartMain = echarts.init(document.getElementById('main'));
+        var city = [{
+                "name": "石家庄",
+                "value": [114.48, 38.31]
+            },
+            {
+                "name": "保定",
+                "value": [115.48, 39.17]
+            },
+            {
+                "name": "张家口",
+                "value": [114.88, 41.12]
+            },
+            {
+                "name": "承德",
+                "value": [117.88, 41.32]
+            },
+            {
+                "name": "秦皇岛",
+                "value": [119.38, 40.22]
+            },
+            {
+                "name": "唐山",
+                "value": [118.28, 39.92]
+            },
+            {
+                "name": "廊坊",
+                "value": [116.58, 39.22]
+            },
+            {
+                "name": "沧州",
+                "value": [116.28, 38.32]
+            },
+            {
+                "name": "邯郸",
+                "value": [114.78, 36.37]
+            },
+            {
+                "name": "衡水",
+                "value": [115.68, 37.98]
+            },
+            {
+                "name": "邢台",
+                "value": [114.88, 37.32]
+            }
+        ]
+       
+        var min=0,max=300;
+        var option = {
+            tooltip:{
+                formatter:function(params){
+                    var content='',
+                    content=params.name+params.value[0]+params.value[1];
+                    return content;
+                },
+            },
+            backgroundColor:'#fff',
+            visualMap: {
+                show: false,
+                min: min,
+                max: max,
+                inRange: {
+                    color: ['#e0ffff', '#006edd']
+                },
+                calculable:true
+
+            },
+            geo3D:{
+                show:true,
+                map:"河北",
+                environment: '#000',
+                // 配置为垂直渐变的背景
+                environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0, color: '#00aaff' // 天空颜色
+                }, {
+                offset: 0.7, color: '#998866' // 地面颜色
+                }, {
+                offset: 1, color: '#998866' // 地面颜色
+                }], false),
+                groundPlane :{
+                    show:true,
+                    // color:"#f00"
+                },
+                label:{
+                    show:true,
+                    formatter: '{b}: {c}',
+                    textStyle:{
+                        color:"#fff",
+                        borderWidth:1
+                    }
+                },
+                itemStyle :{
+                    color:"#92F7FF",
+                    opacity:1,
+                    borderWidth:1,
+                    borderColor:"#000"
+                },
+                emphasis:{
+                    label:{
+                        formatter: '{b}: {c}'
+                    }
+                    
+                },
+                regions:[{
+                    
+                }]
+
+            },
+            series: {
+                name:'河北',
+                type: 'map',
+                map: '河北',
+                data:city,
+
+
+                regionHeight: 2,
+                boxWidth:70,
+                //boxHeight:50,
+                boxDepth:50,
+                top:'-10%',
+               //left:'10%',
+
+
+               label: {
+                    show:true,
+                    formatter:function(params){
+                        var content='',
+                        content=params.name;
+                        return content;
+                    },
+                    textStyle:{
+                        color:'#EECBAD',
+                        fontWeight : 'normal',
+                        fontSize : 5,
+                        backgroundColor: 'rgba(0,23,11,0)'
+                    },
+
+
+                    emphasis: {//对应的鼠标悬浮效果
+                        show: true,
+                        textStyle:{color:"#f00"}
+                    } 
+                },
+                itemStyle: {
+
+                        normal: {
+
+                            borderWidth: 0.4
+                        }, //阴影效果
+                        emphasis: {
+                            color: 'rgb(255,255,255)'
+                        }
+                },
+
+                viewControl: {
+                        autoRotate: false,
+                        distance: 70
+                }
+
+
+                }
+            }
+            
+            
+myChartMain.setOption(option);
+    </script>
+</body>
+
+</html>

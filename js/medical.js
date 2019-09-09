@@ -59,40 +59,7 @@ $('.switch-box').on('click','li',function () {
 $(function () {
     jQuery(".hospital-box").slide({ mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:
         12,pnLoop:false,interTime:3000});
-        var params={
-            "administrationPerson": 0,
-            "chargeNumber": "string",
-            "chargePerson": "string",
-            "checkFailDesc": "string",
-            "checkPass": 0,
-            "code": "string",
-            "compGradeId": 0,
-            "compLevelId": 0,
-            "compPropId": 0,
-            "contactNumber": "string",
-            "contacts": "string",
-            "createTime": "2019-09-05T13:18:24.941Z",
-            "departmentType": 0,
-            "enterprisePerson": 0,
-            "flag": 0,
-            "majorAdmin": 0,
-            "name": "string",
-            "operator": 0,
-            "rAdministrationPerson": 0,
-            "rEnterprisePerson": 0,
-            "rTotalPerson": 0,
-            "rWorkerPerson": 0,
-            "remark": "string",
-            "retirePerson": 0,
-            "siteInfoId": 0,
-            "sort": 0,
-            "totalPerson": 0,
-            "updateTime": "2019-09-05T13:18:24.941Z",
-            "workerPerson": 0
-        }
-    // $.get('http://192.168.1.126:8090/department/select/4',function(res){
-    //     console.log(res)
-    // })
+  
 })
 
 
@@ -147,10 +114,12 @@ var chinaDatas = [
     }],	[{
         name: '辽宁',
         value: 0
-    }],	[{
-        name: '河北',
-        value: 0
-    }],	[{
+    }],
+    // 	[{
+    //     name: '河北',
+    //     value: 0
+    // }],
+    	[{
         name: '天津',
         value: 0
     }],	[{
@@ -210,6 +179,13 @@ var chinaDatas = [
     }],	[{
         name: '贵州',
         value: 0
+    }],
+    [{
+        name:"云南",
+        value:0
+    }],[{
+        name:"广东",
+        value:0
     }],[{
         name: '广西',
         value: 0
@@ -218,7 +194,7 @@ var chinaDatas = [
         value: 0
     }],	[{
         name: '上海',
-        value: 1
+        value: 0
     }]
 ];
 
@@ -226,21 +202,22 @@ var convertData = function(data) {
     var res = [];
     for(var i = 0; i < data.length; i++) {
         var dataItem = data[i];
-        var fromCoord = chinaGeoCoordMap[dataItem[0].name];
-        var toCoord = [116.4551,40.2539];
+        var toCoord = chinaGeoCoordMap[dataItem[0].name];
+        var fromCoord = [114.507605,38.045729];
         if(fromCoord && toCoord) {
             res.push([{
                 coord: fromCoord,
-                value: dataItem[0].value
+               
             }, {
-                coord: toCoord,
+                coord: toCoord, 
+                value: dataItem[0].value
             }]);
         }
     }
     return res;
 };
 var series = [];
-[['北京市', chinaDatas]].forEach(function(item, i) {
+[['河北', chinaDatas]].forEach(function(item, i) {
     console.log(item)
     series.push({
             type: 'lines',
@@ -275,6 +252,7 @@ var series = [];
                     position: 'right', //显示位置
                     offset: [5, 0], //偏移设置
                     formatter: function(params){//圆环显示文字
+                        // console.log(params);
                         return params.data.name;
                     },
                     fontSize: 13
@@ -348,14 +326,17 @@ option = {
         extraCssText: 'z-index:100',
         formatter: function(params, ticket, callback) {
             //根据业务自己拓展要显示的内容
+            console.log(params);
+            
             var res = "";
             var name = params.name;
-            var value = params.value[params.seriesIndex + 1];
+            var value = params.value//[params.seriesIndex + 1];
             res = "<span style='color:#fff;'>" + name + "</span><br/>数据：" + value;
+            console.log(res)
             return res;
         }
     },
-    backgroundColor:"#013954",
+    backgroundColor:'transparent',//"#013954",
     visualMap: { //图例值控制
         min: 0,
         max: 1,
@@ -368,6 +349,7 @@ option = {
     },
     geo: {
         map: 'china',
+        
         zoom: 1.2,
         label: {
             emphasis: {
@@ -390,3 +372,381 @@ option = {
 };
 
 myChartmap.setOption(option)
+
+
+function hebeiMap(){
+
+    var myChartMain = echarts.init(document.getElementById('main'));
+    var city = [{
+            "name": "石家庄",
+            "value": [114.48, 38.31]
+        },
+        {
+            "name": "保定",
+            "value": [115.48, 39.17]
+        },
+        {
+            "name": "张家口",
+            "value": [114.88, 41.12]
+        },
+        {
+            "name": "承德",
+            "value": [117.88, 41.32]
+        },
+        {
+            "name": "秦皇岛",
+            "value": [119.38, 40.22]
+        },
+        {
+            "name": "唐山",
+            "value": [118.28, 39.92]
+        },
+        {
+            "name": "廊坊",
+            "value": [116.58, 39.22]
+        },
+        {
+            "name": "沧州",
+            "value": [116.28, 38.32]
+        },
+        {
+            "name": "邯郸",
+            "value": [114.78, 36.37]
+        },
+        {
+            "name": "衡水",
+            "value": [115.68, 37.98]
+        },
+        {
+            "name": "邢台",
+            "value": [114.88, 37.32]
+        }
+    ]
+   
+    var min=0,max=300;
+    var option = {
+        tooltip:{
+            formatter:function(params){
+                var content='',
+                content=params.name+params.value[0]+params.value[1];
+                return content;
+            },
+        },
+        backgroundColor:'#fff',
+        visualMap: {
+            show: false,
+            min: min,
+            max: max,
+            inRange: {
+                color: ['#e0ffff', '#006edd']
+            },
+            calculable:true
+
+        },
+        geo3D:{
+            show:true,
+            map:"河北",
+            environment: '#000',
+            // 配置为垂直渐变的背景
+            environment: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0, color: '#00aaff' // 天空颜色
+            }, {
+            offset: 0.7, color: '#998866' // 地面颜色
+            }, {
+            offset: 1, color: '#998866' // 地面颜色
+            }], false),
+            groundPlane :{
+                show:true,
+                // color:"#f00"
+            },
+            label:{
+                show:true,
+                formatter: '{b}: {c}',
+                textStyle:{
+                    color:"#fff",
+                    borderWidth:1
+                }
+            },
+            itemStyle :{
+                color:"#92F7FF",
+                opacity:1,
+                borderWidth:1,
+                borderColor:"#000"
+            },
+            emphasis:{
+                label:{
+                    formatter: '{b}: {c}'
+                }
+                
+            },
+            regions:[{
+                
+            }]
+
+        },
+        series: {
+            name:'河北',
+            type: 'map',
+            map: '河北',
+            data:city,
+
+
+            regionHeight: 2,
+            boxWidth:70,
+            //boxHeight:50,
+            boxDepth:50,
+            top:'-10%',
+           //left:'10%',
+
+
+           label: {
+                show:true,
+                formatter:function(params){
+                    var content='',
+                    content=params.name;
+                    return content;
+                },
+                textStyle:{
+                    color:'#EECBAD',
+                    fontWeight : 'normal',
+                    fontSize : 5,
+                    backgroundColor: 'rgba(0,23,11,0)'
+                },
+
+
+                emphasis: {//对应的鼠标悬浮效果
+                    show: true,
+                    textStyle:{color:"#f00"}
+                } 
+            },
+            itemStyle: {
+
+                    normal: {
+
+                        borderWidth: 0.4
+                    }, //阴影效果
+                    emphasis: {
+                        color: 'rgb(255,255,255)'
+                    }
+            },
+
+            viewControl: {
+                    autoRotate: false,
+                    distance: 70
+            }
+
+
+            }
+        }
+        
+        
+myChartMain.setOption(option);
+
+
+
+}
+
+
+function hebeiMap() {
+
+    $.get('./js/hebei.geoJson', function (chinaJson) {
+        console.log(chinaJson);
+        console.log(echarts);
+
+        echarts.registerMap('河北', chinaJson);
+        var chart = echarts.init(document.getElementById('hebeiMap'));
+        var geoCoordMap = [{
+                "name": "石家庄",
+                "value": [114.48, 38.31]
+            },
+            {
+                "name": "保定",
+                "value": [115.48, 39.17]
+            },
+            {
+                "name": "张家口",
+                "value": [114.88, 41.12]
+            },
+            {
+                "name": "承德",
+                "value": [117.88, 41.32]
+            },
+            {
+                "name": "秦皇岛",
+                "value": [119.38, 40.22]
+            },
+            {
+                "name": "唐山",
+                "value": [118.28, 39.92]
+            },
+            {
+                "name": "廊坊",
+                "value": [116.58, 39.22]
+            },
+            {
+                "name": "沧州",
+                "value": [116.28, 38.32]
+            },
+            {
+                "name": "邯郸",
+                "value": [114.78, 36.37]
+            },
+            {
+                "name": "衡水",
+                "value": [115.68, 37.98]
+            },
+            {
+                "name": "邢台",
+                "value": [114.88, 37.32]
+            },{
+                "name":"雄安新区",
+                "value":[116.048396,39.002416]
+            },{
+                "name":"辛集",
+                "value":[115.227615,37.888844]
+            },{
+                "name":"定州",
+                "value":[115.227615,37.888844]
+            }
+        ]
+        var data = [{
+                name: "石家庄",
+                data: 200
+            },
+            {
+                name: "邯郸",
+                data: 100
+            },
+            {
+                name: "张家口",
+                data: 50
+            },
+            {
+                name: "沧州",
+                data: 20
+            },
+            {
+                name: "唐山",
+                data: 200
+            }, {
+                name: "雄安新区",
+                data: 500
+            }
+        ]
+        var convertData = function (data) {
+            var res = [];
+            var geoCoord;
+            for (var i = 0; i < data.length; i++) {
+                geoCoordMap.forEach(v => {
+                    if (v.name == [data[i].name]) {
+                        geoCoord = v.value
+                    }
+                })
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].data)
+                    });
+                }
+            }
+            console.log(res)
+            return res;
+        };
+        console.log(convertData(data));
+
+
+
+        option = {
+            title: {
+                text: '',
+                x: 'left',
+                top: "10",
+                textStyle: {
+                    color: '#000',
+                    fontSize: 14
+                }
+            },
+            tooltip: {
+                show: true,
+                formatter: (params) => {
+                    let data = "测试1:" + params.name + "<br/>" + "值:" + params.value[2] +
+                        "<br/>" + "地理坐标:[" +
+                        params.value[0] + "," + params.value[1] + "]";
+                    return data;
+                },
+            },
+            geo3D: {
+                map: '河北',
+                roam: true,
+                itemStyle: {
+                    color: '#1d5e98',
+                    opacity: 1,
+                    borderWidth: 0.4,
+                    borderColor: '#fff'
+                },
+                label: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff', //地图初始化区域字体颜色
+                        fontSize: 14,
+                        opacity: 1,
+                        backgroundColor: 'rgba(0,23,11,0)'
+                    },
+                },
+                emphasis: { //当鼠标放上去  地区区域是否显示名称
+                    label: {
+                        show: true,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 14,
+                            backgroundColor: 'rgba(0,23,11,0)'
+                        }
+                    }
+                },
+                shading: 'lambert',
+                light: { //光照阴影
+                    main: {
+                        color: '#fff', //光照颜色
+                        intensity: 1.2, //光照强度
+                        shadowQuality: 'high', //阴影亮度
+                        shadow: false, //是否显示阴影
+                        alpha: 55,
+                        beta: 10
+
+                    },
+                    ambient: {
+                        intensity: 0.3
+                    }
+                }
+            },
+            series: [{
+                    grid3DIndex: 1,
+                    globeIndex: 1,
+                    bevelSize: 1,
+                    bevelSmoothness: 2,
+                    name: 'bar3D',
+                    type: "bar3D",
+                    coordinateSystem: 'geo3D',
+                    barSize: 1, //柱子粗细
+                    shading: 'lambert',
+                    opacity: 1,
+                    bevelSize: 0.3,
+                    animation: true,
+                    label: {
+                        show: true,
+                        formatter: function (params) {
+                            console.log(params);
+                            return params.data.name + ":" + params.data.value[2]
+                        }
+                    },
+                    data: convertData(data)
+
+                }
+
+            ]
+        }
+        echarts.init(document.getElementById('hebeiMap')).setOption(option);
+    });
+}
+
+hebeiMap()

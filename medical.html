@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/medical.css">
     <script src="js/jquery.js"></script>
-    <script src="js/echarts.min.js"></script>
+    <script src="echarts.min.js"></script>
     <script src="js/jquery.SuperSlide.2.1.js"></script>
     <script src="js/china.js"></script>
+    <script src="js/echarts-gl.min.js"></script>
 </head>
 <body style="height: 1080px!important">
     <header>
@@ -100,8 +101,11 @@
                             <div class="hebei-map" id="bar2">
 
                             </div>
-                            <div id="bar3" style="width: 914px;height: 500px">
+                            <div id="bar3" style="width: 914px;height: 500px;display: none">
 
+                            </div>
+                            <div id="hebeiMap"style="width: 914px;height: 500px;">
+                                
                             </div>
                             <div id="echartMap"></div>
                             <ul class="record-click">
@@ -184,6 +188,10 @@
     <script src="./js/line-module.js"></script>
     <script src="./js/bar-module.js"></script>
     <script src="./js/new-bar.js"></script>
-
+    <script>
+        $('#bar2').click(function(){
+            $('#hebeiMap').show()
+        })
+    </script>
 </body>
 </html>
