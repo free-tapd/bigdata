@@ -155,8 +155,14 @@ header .header-title{
     position: relative;
     background: url("../img/bar-line.png") no-repeat center ;
     background-size: contain;
+    
 
 }
+ .map-module .btn-box{
+    position: absolute;
+    top: 20px;
+ }
+ 
 .mapIcons{
 
     width: 113px;
@@ -203,7 +209,7 @@ header .header-title{
     justify-content: center;
     width: 82px;
     height: 82px;
-    background-image: url("../img/btn1.png");
+    background-image: url("../img/btn2.png");
     background-size: contain;
     background-position: center;
     text-align: center;
@@ -214,9 +220,7 @@ header .header-title{
     color:rgba(184,231,253,1);
     text-shadow:0px 0px 3px rgba(12,29,82,0.98);
 }
-.record-click li:last-child{
-    background-image: url("../img/btn2.png");
-}
+
 .record-click span{
     width: 36px;
     word-break: break-word;

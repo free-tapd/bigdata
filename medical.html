@@ -26,7 +26,7 @@
                         <div class="other-place">
                             <div class="unit"> <p class="unit-text"><i></i> <span>单位：人</span></p></div>
                             <ul class="other-tab">
-                                <li class="tab-active">预备人数</li>
+                                <li class="tab-active">备案人数</li>
                                 <li>详细分类</li>
                             </ul>
 
@@ -104,14 +104,17 @@
                             <div id="bar3" style="width: 914px;height: 500px;display: none">
 
                             </div>
-                            <div id="hebeiMap"style="width: 914px;height: 500px;">
+                            <div id="hebeiMap"style="width: 914px;height: 500px; display:none">
                                 
+                            </div>
+                            <div id="CHINAMAP" style="width: 914px;height: 500px; ">
+
                             </div>
                             <div id="echartMap"></div>
                             <ul class="record-click">
-                                <li><span>备案人数</span></li>
-                                <li><span>跨省就医</span></li>
-                                <li><span>省内就医</span></li>
+                                <li class="recordNum"><span>备案人数</span></li>
+                                <li><span class="trans-province-medical" >跨省就医</span></li>
+                                <li class="province-medical"><span>省内就医</span></li>
                             </ul>
                             <div class="sel-date-box">
                                 <div class="method-hospital">
@@ -188,8 +191,9 @@
     <script src="./js/line-module.js"></script>
     <script src="./js/bar-module.js"></script>
     <script src="./js/new-bar.js"></script>
+    <script src="./js/chinaMap.js"></script>
     <script>
-        $('#bar2').click(function(){
+        $('.recordNum').click(function(){
             $('#hebeiMap').show()
         })
     </script>

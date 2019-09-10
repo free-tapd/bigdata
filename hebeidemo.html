@@ -23,18 +23,10 @@
 <body>
     <div id='main'></div>
     <script>
+        var chart = echarts.init(document.getElementById('main'));
         function hebeiMap() {
-
             $.get('./js/hebei.geoJson', function (chinaJson) {
-                console.log(chinaJson);
-                console.log(echarts);
-
                 echarts.registerMap('河北', chinaJson);
-                var chart = echarts.init(document.getElementById('main'));
-                chart.setOption({
-
-                });
-
                 var geoCoordMap = [{
                         "name": "石家庄",
                         "value": [114.48, 38.31]
@@ -190,7 +182,8 @@
                             }
                         }
                     },
-                    series: [{
+                    series: [
+                        {
                             grid3DIndex: 1,
                             globeIndex: 1,
                             bevelSize: 1,
@@ -206,21 +199,36 @@
                             label: {
                                 show: true,
                                 formatter: function (params) {
-                                    console.log(params);
                                     return params.data.name + ":" + params.data.value[2]
                                 }
                             },
                             data: convertData(data)
 
                         }
-
+        
                     ]
                 }
-                echarts.init(document.getElementById('main')).setOption(option);
+                chart.setOption(option,true);
+                
             });
         }
 
         hebeiMap()
+
+        // chart.on('click',function(params){
+        //     console.log(params);
+            
+        // })
+
+        chart.getZr().on('click',function(e){
+// funcOnClick(e);
+console.log(e);
+
+//    chart.on('click',function(params){
+//             console.log(params);
+            
+//         })
+});
     </script>
 </body>
 

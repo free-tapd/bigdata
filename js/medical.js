@@ -115,10 +115,10 @@ var chinaDatas = [
         name: '辽宁',
         value: 0
     }],
-    // 	[{
-    //     name: '河北',
-    //     value: 0
-    // }],
+    	[{
+        name: '河北',
+        value: 0
+    }],
     	[{
         name: '天津',
         value: 0
